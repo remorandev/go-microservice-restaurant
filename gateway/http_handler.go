@@ -1,0 +1,22 @@
+package main
+
+import (
+	"log"
+	"net/http"
+)
+
+type handler struct {
+	// gateway
+}
+
+func NewHandler() *handler {
+	return &handler{}
+}
+
+func (h *handler) registerRoutes(mux *http.ServeMux) {
+	mux.HandleFunc("POST /api/customer/{customerID}/orders", h.HandlerCreateOrder)
+}
+
+func (h *handler) HandlerCreateOrder(w http.ResponseWriter, r *http.Request) {
+	log.Println("Create order")
+}
