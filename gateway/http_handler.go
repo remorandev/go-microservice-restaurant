@@ -1,7 +1,6 @@
 package main
 
 import (
-	"log"
 	"net/http"
 )
 
@@ -18,5 +17,5 @@ func (h *handler) registerRoutes(mux *http.ServeMux) {
 }
 
 func (h *handler) HandlerCreateOrder(w http.ResponseWriter, r *http.Request) {
-	log.Println("Create order")
+
 }

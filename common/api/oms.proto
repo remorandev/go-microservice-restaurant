@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option go_package = "github.com/remorandev/commons/api";
+
+package api;
+
+service OrderService {
+  rpc CreateOrder(CreateOrderRequest) returns (Order) {}
+}
+
+message Order {
+  string ID = 1;
+  string CustomerID = 2;
+  repeated Item Items = 3;
+}
+
+message CreateOrderRequest {
+  string customerID = 1;
+  repeated ItemsWithQuantity items = 2;
+}
+
+message Item {
+  string ID = 1;
+  string name = 2;
+  string Quantity = 3;
+  string PriceID = 4;
+}
+
+message ItemsWithQuantity {
+  string ID = 1;
+  int32 Quantity = 2;
+}
